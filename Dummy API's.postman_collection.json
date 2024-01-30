@@ -1,0 +1,256 @@
+{
+	"info": {
+		"_postman_id": "aea1c450-ef84-4313-8c7a-a43ebe3b8ec9",
+		"name": "Dummy API's",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "32156796",
+		"_collection_link": "https://blue-meadow-437288.postman.co/workspace/API-TESTING-January~f2628635-b200-4f48-9030-a20681902341/collection/32156796-aea1c450-ef84-4313-8c7a-a43ebe3b8ec9?action=share&source=collection_link&creator=32156796"
+	},
+	"item": [
+		{
+			"name": "GET Request_Employees",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(pm.environment.get(\"status\"));\r",
+							"    pm.test(\"Validate the employee data\",function(){\r",
+							"    var jdata=JSON.parse(responseBody);\r",
+							"    pm.expect(jdata.data[2].employee_name).to.eql(pm.environment.get(\"employee_name\"));\r",
+							"    pm.expect(Number(jdata.data[2].employee_salary)).to.eql(Number(pm.environment.get(\"employee_salary\")));\r",
+							"    pm.expect(Number(jdata.data[2].employee_age)).to.eql(Number(pm.environment.get(\"employee_age\")));\r",
+							"})\r",
+							"\r",
+							"});\r",
+							"\r",
+							"\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://dummy.restapiexample.com/api/v1/employees",
+					"protocol": "https",
+					"host": [
+						"dummy",
+						"restapiexample",
+						"com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"employees"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET Request_Employee1",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(pm.environment.get(\"status\"));\r",
+							"    pm.test(\"Validate the employee data\",function(){\r",
+							"    var jdata=JSON.parse(responseBody);\r",
+							"    pm.expect(Number(jdata.data.employee_id)).to.eql(Number(pm.environment.get(\"employee_id\")));\r",
+							"    pm.expect(Number(jdata.data.employee_salary)).to.eql(Number(pm.environment.get(\"employee_salary\")));\r",
+							"    pm.expect(Number(jdata.data.employee_age)).to.eql(Number(pm.environment.get(\"employee_age\")));\r",
+							"})\r",
+							"\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://dummy.restapiexample.com/api/v1/employee/1",
+					"protocol": "https",
+					"host": [
+						"dummy",
+						"restapiexample",
+						"com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"employee",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST Request_Create",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(pm.environment.get(\"status\"));\r",
+							"    pm.test(\"Validate the employee data\",function(){\r",
+							"    var jdata=JSON.parse(responseBody);\r",
+							"    pm.expect(jdata.data.name).to.eql(pm.environment.get(\"name\"));\r",
+							"    pm.expect(jdata.data.salary).to.eql(pm.environment.get(\"salary\"));\r",
+							"    pm.expect(jdata.data.age).to.eql(pm.environment.get(\"age\"));\r",
+							"})\r",
+							"\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"name\":\"test\",\"salary\":\"123\",\"age\":\"23\"}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://dummy.restapiexample.com/api/v1/create",
+					"protocol": "https",
+					"host": [
+						"dummy",
+						"restapiexample",
+						"com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"create"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PUT Request_Update",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(pm.environment.get(\"status\"));\r",
+							"    pm.test(\"Validate the employee data\",function(){\r",
+							"    var jdata=JSON.parse(responseBody);\r",
+							"    pm.expect(jdata.data.data.name).to.eql(pm.environment.get(\"name\"));\r",
+							"    pm.expect(jdata.data.data.salary).to.eql(pm.environment.get(\"salary\"));\r",
+							"    pm.expect(jdata.data.data.age).to.eql(pm.environment.get(\"age\"));\r",
+							"})\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"status\": \"success\",\r\n    \"data\": {\r\n        \"name\": \"test\",\r\n        \"salary\": \"123\",\r\n        \"age\": \"23\",\r\n        \"id\": 25\r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://dummy.restapiexample.com/public/api/v1/update/21",
+					"protocol": "https",
+					"host": [
+						"dummy",
+						"restapiexample",
+						"com"
+					],
+					"path": [
+						"public",
+						"api",
+						"v1",
+						"update",
+						"21"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DELETE Request_id",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"     pm.response.to.have.status(pm.environment.get(\"status\"));\r",
+							"    pm.test(\"Validate the employee data\",function(){\r",
+							"    var jdata=JSON.parse(responseBody);\r",
+							"    pm.expect(jdata.data).to.eql(pm.environment.get(\"data\"));\r",
+							"    \r",
+							"})\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "https://dummy.restapiexample.com/public/api/v1/delete/2",
+					"protocol": "https",
+					"host": [
+						"dummy",
+						"restapiexample",
+						"com"
+					],
+					"path": [
+						"public",
+						"api",
+						"v1",
+						"delete",
+						"2"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
