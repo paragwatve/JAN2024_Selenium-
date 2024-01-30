@@ -1,0 +1,129 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 2,
+    "passes": 1,
+    "pending": 0,
+    "failures": 1,
+    "start": "2024-01-10T06:03:30.009Z",
+    "end": "2024-01-10T06:03:59.535Z",
+    "duration": 29526,
+    "testsRegistered": 2,
+    "passPercent": 50,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "4b638903-2be4-4f3b-9140-af6300113828",
+      "title": "",
+      "fullFile": "cypress\\e2e\\myFirsttest.cy.js",
+      "file": "cypress\\e2e\\myFirsttest.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "25284d94-9418-495e-a879-20533d3b09da",
+          "title": "OrangeHRM",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Login",
+              "fullTitle": "OrangeHRM Login",
+              "timedOut": null,
+              "duration": 10573,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.visit(\"https://opensource-demo.orangehrmlive.com/web/index.php/auth/login\");\ncy.get(\"input[name=username]\").type(\"Admin\");\ncy.get(\"input[name=password]\").type(\"admin123\");\ncy.get(\"button[type=submit]\").click();",
+              "err": {},
+              "uuid": "db055177-0bde-4857-9eab-c0c1ddc1ebbc",
+              "parentUUID": "25284d94-9418-495e-a879-20533d3b09da",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Login Failed",
+              "fullTitle": "OrangeHRM Login Failed",
+              "timedOut": null,
+              "duration": 6268,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": "{\n  \"title\": \"cypress-mochawesome-reporter-screenshots\",\n  \"value\": [\n    [\n      \"\\\\myFirsttest.cy.js\\\\OrangeHRM -- Login Failed (failed).png\"\n    ]\n  ]\n}",
+              "code": "cy.visit(\"https://opensource-demo.orangehrmlive.com/web/index.php/auth/login\");\ncy.title().should(\"eq\", \"abc\");\ncy.get(\"input[name=username]\").type(\"Admin\");\ncy.get(\"input[name=password]\").type(\"admin123\");\ncy.get(\"button[type=submit]\").click();",
+              "err": {
+                "message": "AssertionError: Timed out retrying after 4000ms: expected 'OrangeHRM' to equal 'abc'",
+                "estack": "AssertionError: Timed out retrying after 4000ms: expected 'OrangeHRM' to equal 'abc'\n    at Context.eval (webpack:///./cypress/e2e/myFirsttest.cy.js:21:19)",
+                "diff": "- 'OrangeHRM'\n+ 'abc'\n"
+              },
+              "uuid": "38773ea3-6002-4a57-a4b3-322822f261df",
+              "parentUUID": "25284d94-9418-495e-a879-20533d3b09da",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "db055177-0bde-4857-9eab-c0c1ddc1ebbc"
+          ],
+          "failures": [
+            "38773ea3-6002-4a57-a4b3-322822f261df"
+          ],
+          "pending": [],
+          "skipped": [],
+          "duration": 16841,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "overwrite": false,
+        "html": false,
+        "json": true,
+        "reportDir": "cypress\\reports\\html\\.jsons"
+      },
+      "version": "6.2.0"
+    }
+  }
+}
